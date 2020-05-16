@@ -19,14 +19,14 @@ html {
 .grid-container {
     border: 1px blue solid;
     display: grid;
-    /* width: auto; */
-    height: 600px;
+    width: 370px;
+    height: 610px;
     margin: auto;
     grid-template-columns: repeat(4, 90px);
-    grid-template-rows: repeat(6, 90px);
+    grid-template-rows: 150px repeat(5, 90px);
     margin: 3px;
     padding: 3px;
-    background-color: darkorange;
+    background-color: rgb(116, 116, 116);
     align-content: center;
     justify-content: center;
 }
@@ -36,13 +36,13 @@ html {
     width: 100%;
     height: auto;
     background-color: rgb(70, 60, 60);
-
 }
 
 .keys {
     display: grid;
-    border: 1px rgb(30, 219, 87) solid;
+    /* border: 1px rgb(30, 219, 87) solid; */
     margin: 3px;
+    background-color: rgb(77, 70, 80);
 }
 
 .span-two { 
@@ -55,15 +55,12 @@ html {
 .span-four {
     grid-column: 1 / span 4;
 } 
-
-/* .cards {
-    border: aqua solid 1px;
-    width: 150px;
-    height: 200px;
-    margin: 4px;
-    position: relative;
-    box-shadow: 1px 1px 1px rgb(0, 85, 0);
+ button {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgb(45, 61, 45);
     transform: scale(1);
     transform-style: preserve-3d;
-    cursor: pointer;
-} */
+    font-size: 1.5rem;
+    outline: none;
+    border: black 1px solid;
+ }
