@@ -45,6 +45,26 @@ body {
     border: black solid 2px;
 }
 
+.topDisplay {
+    text-align: right;
+    font-size: 1.5rem;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 5px;
+}
+
+.bottomDisplay {
+    text-align: right;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    font-size: 3rem;
+    padding-right: 5px;
+}
+
+
+
+
 .keys {
     display: grid;
     /* border: 1px rgb(30, 219, 87) solid; */
@@ -81,6 +101,7 @@ button:active {
 }
 
 button:hover {
-    background-color: rgb(95, 95, 95);
+    background-color: rgb(122, 120, 120);
     color: aliceblue;
+    border: aliceblue solid 1px;
   }
