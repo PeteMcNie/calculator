@@ -8,6 +8,13 @@ html {
     font-size: 16px;
 }
 
+body {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
 .title {
     color: azure;
     font-size: 2.5rem;
@@ -17,7 +24,7 @@ html {
 }
 
 .grid-container {
-    border: 1px blue solid;
+    border: 3px rgb(24, 24, 49) solid;
     display: grid;
     width: 370px;
     height: 610px;
@@ -27,8 +34,6 @@ html {
     margin: 3px;
     padding: 3px;
     background-color: rgb(116, 116, 116);
-    align-content: center;
-    justify-content: center;
 }
 
 .display {
@@ -36,6 +41,8 @@ html {
     width: 100%;
     height: auto;
     background-color: rgb(70, 60, 60);
+    box-shadow: 1px 1px 1px rgb(45, 61, 45);
+    border: black solid 2px;
 }
 
 .keys {
@@ -47,20 +54,33 @@ html {
 
 .span-two { 
     grid-column: 1 / span 2;
+    border-radius: 2%;
 }
 
 .span-two-buttom { 
     grid-column: 3 / span 2;
+    border-radius: 2%;
 }
 .span-four {
     grid-column: 1 / span 4;
+    border-radius: 2%;
 } 
+
  button {
     cursor: pointer;
     box-shadow: 1px 1px 1px rgb(45, 61, 45);
-    transform: scale(1);
-    transform-style: preserve-3d;
     font-size: 1.5rem;
     outline: none;
     border: black 1px solid;
+    border-radius: 50%;
  }
+
+button:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+button:hover {
+    background-color: rgb(95, 95, 95);
+    color: aliceblue;
+  }
