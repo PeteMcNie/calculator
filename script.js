@@ -13,17 +13,18 @@ for (let i = 0; i < number.length; i++) {
     number[i].addEventListener('click', addNumber, false)
 }
 
-let firstNumber = [];
+let currentNumber = [];
+let operatorLastPressed = "";
 
 function addNumber () {
     let number = this.innerHTML;
     let array = [];
     array = number;
-    firstNumber.push(...array);
+    currentNumber.push(...array);
     display();
 
 
-   // console.log(firstNumber)
+ //  console.log(currentNumber)
 };
 
 
@@ -31,10 +32,13 @@ function addNumber () {
 // THE NUMBER BEING DISPLAYED
 function display () {
     let display = "";
-    display = firstNumber.join('');
-    // console.log(firstNumber) 
+    display = currentNumber.join('');
+    // console.log(display) 
     document.getElementById('bottomDisplay').innerHTML = display;
+    
 }
+
+
 
 
 
@@ -43,12 +47,29 @@ for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', operation, false)
 }
 
-
 function operation () {
+    let num = currentNumber.join('');
+    // console.log(num)
+    firstNumber = Number(num)
+    // console.log(firstNumber)
+
+    document.getElementById('topDisplay').innerHTML = `${firstNumber} ${this.innerHTML}`;
+
+    operatorLastPressed = this.innerHTML;
+    // console.log(operatorLastPressed)
+
+    
+    currentNumber = [];
+   // document.getElementById('bottomDisplay').innerHTML = `${this.innerHTML}`;
+}
 
 
 
+// Setting up an event listener on Equals button
+calculate.addEventListener('click', calculator, false)
+
+function calculator () {
 
 
-    console.log('operation')
+    console.log(1 + 1)
 }
