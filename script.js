@@ -7,17 +7,16 @@ let clearAll = document.querySelector('[data-clearAll]');
 let clearEntry = document.querySelector('[data-clearEntry]');
 
 
+let currentNumber = [];            //Used to store the current Number we are working with
+let operatorLastPressed = "";       //Used to store the operator pressed
+
+
+
 
 // Setting up an event listener on NUMBER buttons
 for (let i = 0; i < number.length; i++) {
     number[i].addEventListener('click', addNumber, false)
 }
-
-let currentNumber = [];            //Used to store the current Number we are working with
-let operatorLastPressed = "";       //Used to store the operator pressed
-
-console.log(operatorLastPressed)
-
 
 function addNumber () {
     let number = this.innerHTML;  
@@ -27,7 +26,7 @@ function addNumber () {
     display();                     // The function display is called
 
 
- //  console.log(currentNumber)
+  console.log(currentNumber)
 };
 
 
@@ -49,7 +48,7 @@ function display () {
 
 
 
-
+let firstNumber;
 
 // Setting up an event listener on OPERATOR buttons
 for (let i = 0; i < operator.length; i++) {
@@ -58,7 +57,6 @@ for (let i = 0; i < operator.length; i++) {
 
 function operation () {
     let num = currentNumber.join('');    //Our currentNumber is turned into a string
-    // console.log(num)
     firstNumber = Number(num)           //The string is converted to a number
     // console.log(firstNumber)
 
@@ -69,9 +67,16 @@ function operation () {
     
     
     currentNumber = [];
-    return operatorLastPressed
+    return 
    // document.getElementById('bottomDisplay').innerHTML = `${this.innerHTML}`;
 }
+
+
+
+
+
+
+
 
 
 
@@ -79,7 +84,33 @@ function operation () {
 calculate.addEventListener('click', calculator, false)
 
 function calculator () {
-    console.log(operatorLastPressed)
+    let result;                            //Variable for storing result of calc
 
-    console.log(1 + 1)
+    let num2 = currentNumber.join('');    //Our currentNumber is turned into a string
+    secondNumber = Number(num2)           //The string is converted to a number
+    
+    console.log(firstNumber)
+    console.log(operatorLastPressed)
+    console.log(secondNumber)
+
+    if (operatorLastPressed === '÷') {
+        result = firstNumber / secondNumber
+    } else if (operatorLastPressed === 'x') {
+        result = firstNumber * secondNumber
+    } else if (operatorLastPressed === '+') {
+        result = firstNumber + secondNumber
+    } else if (operatorLastPressed === '-') {
+        result = firstNumber - secondNumber
+    }
+
+    document.getElementById('bottomDisplay').innerHTML = `${result}`
+
+
+        console.log(result)
+   
+        // console.log(1 + 1)
+
+
+    
+
 }
