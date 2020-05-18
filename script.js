@@ -111,5 +111,10 @@ function calculator () {
 clearAll.addEventListener('click', resetCalc, false)
 
 function resetCalc () {
-    console.log('hello')
+    currentNumber = [];
+    operatorLastPressed = ""; 
+    document.getElementById('topDisplay').innerHTML = ``;
+    document.getElementById('bottomDisplay').innerHTML = ``; 
+
+    console.log('clearAll')
 }
