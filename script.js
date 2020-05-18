@@ -1,56 +1,54 @@
 // ATTAINS ACCESS TO EACH BUTTON
 let number = document.querySelectorAll('[data-number]');
-// console.log(number)
 let operator = document.querySelectorAll('[data-operator]');
-// console.log(operator)
 let decimal = document.querySelector('[data-decimal]');
-// console.log(decimal)
 let calculate = document.querySelector('[data-calculate]');
-// console.log(calculate)
 let clearAll = document.querySelector('[data-clearAll]');
-// console.log(clearAll)
 let clearEntry = document.querySelector('[data-clearEntry]');
-// console.log(clearEntry)
 
 
-// Setting up event listeners on each group of buttons
+
+// Setting up an event listener on NUMBER buttons
 for (let i = 0; i < number.length; i++) {
     number[i].addEventListener('click', addNumber, false)
 }
 
-let array2 = [];
+let firstNumber = [];
 
 function addNumber () {
-    let num = this.innerHTML;
+    let number = this.innerHTML;
     let array = [];
-    array = num;
-    array2.push(...array)
-
-  
-
+    array = number;
+    firstNumber.push(...array);
+    display();
 
 
-    console.log(array2)
-    
-
-
+   // console.log(firstNumber)
 };
 
 
 
+// THE NUMBER BEING DISPLAYED
+function display () {
+    let display = "";
+    display = firstNumber.join('');
+    // console.log(firstNumber) 
+    document.getElementById('bottomDisplay').innerHTML = display;
+}
+
+
+
+// Setting up an event listener on OPERATOR buttons
+for (let i = 0; i < operator.length; i++) {
+    operator[i].addEventListener('click', operation, false)
+}
+
+
+function operation () {
 
 
 
 
 
-
-
-
-// function display (value) {
-//     let display = document.getElementById('#bottomDisplay').innerHTML;
-//     display = value;
-// }
-
-//this.innerHTML
-// console.log(firstNumber)
-// console.log(addNumber())
+    console.log('operation')
+}
