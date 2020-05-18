@@ -83,7 +83,7 @@ function operation () {
 calculate.addEventListener('click', calculator, false)
 
 function calculator () {
-    let result;                            //Variable for storing result of calc
+    let result = 0;                            //Variable for storing result of calc
 
     let num2 = currentNumber.join('');    //Our currentNumber is turned into a string
     secondNumber = Number(num2)           //The string is converted to a number
@@ -107,6 +107,9 @@ function calculator () {
 };
 
 
+
+
+
 // Setting up an event listener on All Clear button
 clearAll.addEventListener('click', resetCalc, false)
 
@@ -118,3 +121,17 @@ function resetCalc () {
 
     console.log('clearAll')
 }
+
+
+
+
+// Setting up an event listener on All Clear button
+clearEntry.addEventListener('click', clearLast, false)
+
+function clearLast () {
+    currentNumber.pop();
+    display();
+
+    // console.log(currentNumber)
+    console.log('clearLast')
+};
