@@ -108,6 +108,30 @@ function calculator () {
 
 
 
+// Setting up an event listener on Decimal button
+decimal.addEventListener('click', dot, false)
+
+function dot () {
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Setting up an event listener on All Clear button
