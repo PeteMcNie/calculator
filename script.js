@@ -47,7 +47,6 @@ function display () {
 
 
 
-//let firstNumber;
 
 // Setting up an event listener on OPERATOR buttons
 for (let i = 0; i < operator.length; i++) {
@@ -66,9 +65,43 @@ function operation () {
     
     
     currentNumber = [];
+    decimalUsed = false;
     return 
    // document.getElementById('bottomDisplay').innerHTML = `${this.innerHTML}`;
 };
+
+
+
+
+
+
+
+let decimalUsed = false;
+
+// Setting up an event listener on Decimal button
+decimal.addEventListener('click', dot, false)
+
+function dot () {
+    if (!decimalUsed) {
+        // console.log('false')
+        currentNumber.push(decimal.innerHTML)
+        display();
+        decimalUsed = true;
+        return 
+    } else {
+        // console.log('true')
+        return
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -108,15 +141,6 @@ function calculator () {
 
 
 
-// Setting up an event listener on Decimal button
-decimal.addEventListener('click', dot, false)
-
-function dot () {
- 
-}
-
-
-
 
 
 
@@ -140,6 +164,7 @@ clearAll.addEventListener('click', resetCalc, false)
 function resetCalc () {
     currentNumber = [];
     operatorLastPressed = ""; 
+    decimalUsed = false;
     document.getElementById('topDisplay').innerHTML = ``;
     document.getElementById('bottomDisplay').innerHTML = ``; 
 
