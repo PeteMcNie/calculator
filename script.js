@@ -26,7 +26,7 @@ function addNumber () {
     display();                     // The function display is called
 
 
-  console.log(currentNumber)
+  // console.log(currentNumber)
 };
 
 
@@ -35,9 +35,8 @@ function addNumber () {
 function display () {
     let display = currentNumber.join('');               // display is our array turned into a string
     // console.log(display) 
-    document.getElementById('bottomDisplay').innerHTML = display;  //the string is placed in our innerHTML
-    
-}
+    document.getElementById('bottomDisplay').innerHTML = display;  //the string is placed in our innerHTML 
+};
 
 
 
@@ -48,12 +47,12 @@ function display () {
 
 
 
-let firstNumber;
+//let firstNumber;
 
 // Setting up an event listener on OPERATOR buttons
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', operation, false)
-}
+};
 
 function operation () {
     let num = currentNumber.join('');    //Our currentNumber is turned into a string
@@ -69,7 +68,7 @@ function operation () {
     currentNumber = [];
     return 
    // document.getElementById('bottomDisplay').innerHTML = `${this.innerHTML}`;
-}
+};
 
 
 
@@ -89,9 +88,9 @@ function calculator () {
     let num2 = currentNumber.join('');    //Our currentNumber is turned into a string
     secondNumber = Number(num2)           //The string is converted to a number
     
-    console.log(firstNumber)
-    console.log(operatorLastPressed)
-    console.log(secondNumber)
+    // console.log(firstNumber)
+    // console.log(operatorLastPressed)
+    // console.log(secondNumber)
 
     if (operatorLastPressed === '÷') {
         result = firstNumber / secondNumber
@@ -104,13 +103,13 @@ function calculator () {
     }
 
     document.getElementById('bottomDisplay').innerHTML = `${result}`
+    //  console.log(result)
+};
 
 
-        console.log(result)
-   
-        // console.log(1 + 1)
+// Setting up an event listener on All Clear button
+clearAll.addEventListener('click', resetCalc, false)
 
-
-    
-
+function resetCalc () {
+    console.log('hello')
 }
