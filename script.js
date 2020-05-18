@@ -47,7 +47,6 @@ function display () {
 
 
 
-
 // Setting up an event listener on OPERATOR buttons
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', operation, false)
@@ -76,6 +75,12 @@ function operation () {
 
 
 
+
+
+
+
+
+
 let decimalUsed = false;
 
 // Setting up an event listener on Decimal button
@@ -95,35 +100,13 @@ function dot () {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Setting up an event listener on Equals button
 calculate.addEventListener('click', calculator, false)
 
 function calculator () {
     let result = 0;                            //Variable for storing result of calc
-
     let num2 = currentNumber.join('');    //Our currentNumber is turned into a string
     secondNumber = Number(num2)           //The string is converted to a number
-    
-    // console.log(firstNumber)
-    // console.log(operatorLastPressed)
-    // console.log(secondNumber)
 
     if (operatorLastPressed === '÷') {
         result = firstNumber / secondNumber
@@ -140,24 +123,6 @@ function calculator () {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Setting up an event listener on All Clear button
 clearAll.addEventListener('click', resetCalc, false)
 
@@ -168,10 +133,8 @@ function resetCalc () {
     document.getElementById('topDisplay').innerHTML = ``;
     document.getElementById('bottomDisplay').innerHTML = ``; 
 
-    console.log('clearAll')
+   //  console.log('clearAll')
 }
-
-
 
 
 // Setting up an event listener on All Clear button
@@ -182,5 +145,5 @@ function clearLast () {
     display();
 
     // console.log(currentNumber)
-    console.log('clearLast')
+    // console.log('clearLast')
 };
