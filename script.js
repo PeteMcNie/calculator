@@ -13,15 +13,18 @@ for (let i = 0; i < number.length; i++) {
     number[i].addEventListener('click', addNumber, false)
 }
 
-let currentNumber = [];
-let operatorLastPressed = "";
+let currentNumber = [];            //Used to store the current Number we are working with
+let operatorLastPressed = "";       //Used to store the operator pressed
+
+console.log(operatorLastPressed)
+
 
 function addNumber () {
-    let number = this.innerHTML;
+    let number = this.innerHTML;  
     let array = [];
-    array = number;
-    currentNumber.push(...array);
-    display();
+    array = number;                //The last number pressed is placed into array
+    currentNumber.push(...array);  // The currentNumber has each number pressed pushed to it
+    display();                     // The function display is called
 
 
  //  console.log(currentNumber)
@@ -31,12 +34,18 @@ function addNumber () {
 
 // THE NUMBER BEING DISPLAYED
 function display () {
-    let display = "";
-    display = currentNumber.join('');
+    let display = currentNumber.join('');               // display is our array turned into a string
     // console.log(display) 
-    document.getElementById('bottomDisplay').innerHTML = display;
+    document.getElementById('bottomDisplay').innerHTML = display;  //the string is placed in our innerHTML
     
 }
+
+
+
+
+
+
+
 
 
 
@@ -48,18 +57,19 @@ for (let i = 0; i < operator.length; i++) {
 }
 
 function operation () {
-    let num = currentNumber.join('');
+    let num = currentNumber.join('');    //Our currentNumber is turned into a string
     // console.log(num)
-    firstNumber = Number(num)
+    firstNumber = Number(num)           //The string is converted to a number
     // console.log(firstNumber)
 
     document.getElementById('topDisplay').innerHTML = `${firstNumber} ${this.innerHTML}`;
 
-    operatorLastPressed = this.innerHTML;
-    // console.log(operatorLastPressed)
-
+    operatorLastPressed = this.innerHTML;   //The last operator pressed is stored as a string
+    console.log(operatorLastPressed)
+    
     
     currentNumber = [];
+    return operatorLastPressed
    // document.getElementById('bottomDisplay').innerHTML = `${this.innerHTML}`;
 }
 
@@ -69,7 +79,7 @@ function operation () {
 calculate.addEventListener('click', calculator, false)
 
 function calculator () {
-
+    console.log(operatorLastPressed)
 
     console.log(1 + 1)
 }
