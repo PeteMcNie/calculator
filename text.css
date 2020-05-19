@@ -4,8 +4,12 @@
 }
 
 html {
-    background-color: rgb(24, 57, 85);
     font-size: 16px;
+    background-color: rgb(10, 15, 29);
+    background-image: url("nzbw.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1300px;
 }
 
 body {
@@ -13,11 +17,10 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
-    /* background: linear-gradient(to right, rgb(129, 3, 129), rgb(252, 252, 4)); */
 }
 
 .title {
-    color: azure;
+    color: rgb(255, 255, 255);
     font-size: 2.5rem;
     text-align: center;
     padding-top: 10vh;
@@ -25,26 +28,22 @@ body {
 }
 
 .grid-container {
-    border: 3px rgb(24, 24, 49) solid;
     display: grid;
     width: 373px;
-    height: 610px;
+    height: 640px;
     margin: auto;
     grid-template-columns: repeat(4, 90px);
-    grid-template-rows: 150px repeat(5, 90px);
+    grid-template-rows: 175px repeat(5, 90px);
     margin: 3px;
     padding: 3px;
-    background-image: linear-gradient(to right, rgb(36, 37, 44), rgb(37, 37, 37));
-
+    background-color: rgba(37, 37, 37, 0.959);
+    border-radius: 5%;
 }
 
 .display {
     display: grid;
     width: 100%;
     height: auto;
-    background-color: rgb(61, 57, 57);
-    box-shadow: 1px 1px 1px rgb(29, 29, 29);
-    border: black solid 2px;
     position: relative;
     padding-bottom: 3px;
     margin-bottom: 3px;
@@ -52,11 +51,11 @@ body {
 
 .topDisplay {
     text-align: right;
-    font-size: 1.5rem;
+    font-size: 2rem;
     height: 50%;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-right: 10px;
-    color: rgb(117, 117, 117);
+    color: rgba(194, 193, 193, 0.856);
     /* border: blue solid 1px; */
 }
 
@@ -78,19 +77,9 @@ body {
     /* border: green solid 1px; */
 }
 
-
-/* .keys {
-
-} */
-
-.span-two { 
-    grid-column: 1 / span 2;
-    border-radius: 2%;
-}
-
 .span-two-buttom { 
     grid-column: 3 / span 2;
-    border-radius: 2%;
+    border-radius: 10%;
 }
 .span-four {
     grid-column: 1 / span 4;
@@ -115,21 +104,22 @@ button:active {
 }
 
 button:hover {
-    /* box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0px 6px 20px 0 rgba(0, 0, 0, 0.19);   */
     box-shadow: 
     inset 0 -3em 3em rgba(209, 208, 208, 0.342), 
           0 0  0 2px rgb(255,255,255),
           0.3em 0.3em 1em rgba(161, 154, 154, 0.575);
-
-    /* box-shadow: 7px 7px 7px rgb(80, 82, 80), 0px 6px 20px 0 rgba(250, 173, 85, 0.19); */
     background-color: rgb(82, 82, 82);
     color: aliceblue;
     border: aliceblue solid 2px;
   }
 
+  button.operator {
+    background-color: rgb(99, 47, 17);
+ }
+
   button.operator:hover {
-    box-shadow: 7px 7px 7px rgb(87, 39, 3);
-    background-color: rgb(87, 39, 3);
+    box-shadow: 7px 7px 7px rgb(110, 51, 5);
+    background-color: rgb(131, 64, 14);
     color: aliceblue;
     border: aliceblue solid 2px;
   }
