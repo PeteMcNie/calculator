@@ -9,7 +9,7 @@ let clearEntry = document.querySelector('[data-clearEntry]');
 
 let currentNumber = [];            //Used to store the current Number we are working with
 let operatorLastPressed = "";       //Used to store the operator pressed
-
+let operatorNumber = [];
 
 
 
@@ -23,11 +23,15 @@ function addNumber () {
     let array = [];
     array = number;                //The last number pressed is placed into array
     currentNumber.push(...array);  // The currentNumber has each number pressed pushed to it
+    operatorNumber.push(...array); 
     display();                     // The function display is called
 
 
-  // console.log(currentNumber)
+ // console.log(currentNumber)
 };
+
+
+
 
 
 
@@ -46,27 +50,44 @@ function display () {
 
 
 
+let operatorUsed = false;
 
 // Setting up an event listener on OPERATOR buttons
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', operation, false)
 };
 
-function operation () {
-    let num = currentNumber.join('');    //Our currentNumber is turned into a string
-    firstNumber = Number(num)           //The string is converted to a number
-    // console.log(firstNumber)
 
-    document.getElementById('topDisplay').innerHTML = `${firstNumber} ${this.innerHTML}`;
+function operation () {
+    let num = operatorNumber.join('');    //Our currentNumber is turned into a string
+    firstNumber = Number(num);           //The string is converted to a number
+    //  console.log(firstNumber + ' firstNumber')
+
+    let num2 = currentNumber.join(''); 
+    backupNum = Number(num2);
+    //  console.log(backupNum + ' back up number')
 
     operatorLastPressed = this.innerHTML;   //The last operator pressed is stored as a string
-    console.log(operatorLastPressed)
-    
-    
-    currentNumber = [];
-    decimalUsed = false;
-    return 
-   // document.getElementById('bottomDisplay').innerHTML = `${this.innerHTML}`;
+    document.getElementById('topDisplay').innerHTML = `${firstNumber} ${this.innerHTML}`;
+
+
+    if (!operatorUsed) {
+        currentNumber = [];
+        operatorUsed = true;
+        decimalUsed = false;
+
+        // console.log('false: operator not yet used')
+        // console.log(firstNumber)
+        // console.log(backupNum)
+        return
+    } else {
+        document.getElementById('bottomDisplay').innerHTML = firstNumber;
+
+        // console.log('true: operator button already pushed')
+        // console.log(firstNumber)
+        // console.log(backupNum)
+        return
+    }  
 };
 
 
@@ -88,16 +109,22 @@ decimal.addEventListener('click', dot, false)
 
 function dot () {
     if (!decimalUsed) {
-        // console.log('false')
+        console.log('false')
+        operatorNumber.push(decimal.innerHTML)
         currentNumber.push(decimal.innerHTML)
         display();
         decimalUsed = true;
         return 
     } else {
-        // console.log('true')
+        console.log('true')
         return
     }
 }
+
+
+
+
+
 
 
 // Setting up an event listener on Equals button
@@ -119,6 +146,7 @@ function calculator () {
     }
 
     document.getElementById('bottomDisplay').innerHTML = `${result}`
+
     //  console.log(result)
 };
 
