@@ -7,7 +7,7 @@ let clearAll = document.querySelector('[data-clearAll]');
 let clearEntry = document.querySelector('[data-clearEntry]');
 
 
-let currentNumber = [];            //Used to store the current Number we are working with
+let currentNumber = [];             //Used to store the current Number we are working with
 let operatorLastPressed = "";       //Used to store the operator pressed
 let operatorNumber = [];
 
@@ -26,13 +26,8 @@ function addNumber () {
     operatorNumber.push(...array); 
     display();                     // The function display is called
 
-
- // console.log(currentNumber)
+  // console.log(currentNumber)
 };
-
-
-
-
 
 
 // THE NUMBER BEING DISPLAYED
@@ -41,13 +36,6 @@ function display () {
     // console.log(display) 
     document.getElementById('bottomDisplay').innerHTML = display;  //the string is placed in our innerHTML 
 };
-
-
-
-
-
-
-
 
 
 let operatorUsed = false;
@@ -61,11 +49,11 @@ for (let i = 0; i < operator.length; i++) {
 function operation () {
     let num = operatorNumber.join('');    //Our currentNumber is turned into a string
     firstNumber = Number(num);           //The string is converted to a number
-    //  console.log(firstNumber + ' firstNumber')
+    //  console.log(firstNumber)
 
     let num2 = currentNumber.join(''); 
     backupNum = Number(num2);
-    //  console.log(backupNum + ' back up number')
+    //  console.log(backupNum)
 
     operatorLastPressed = this.innerHTML;   //The last operator pressed is stored as a string
     document.getElementById('topDisplay').innerHTML = `${firstNumber} ${this.innerHTML}`;
@@ -76,30 +64,18 @@ function operation () {
         operatorUsed = true;
         decimalUsed = false;
 
-        // console.log('false: operator not yet used')
-        // console.log(firstNumber)
-        // console.log(backupNum)
+        console.log('false: operator not yet used')
+        console.log(firstNumber)
+        console.log(backupNum)
         return
     } else {
         document.getElementById('bottomDisplay').innerHTML = firstNumber;
-
         // console.log('true: operator button already pushed')
         // console.log(firstNumber)
         // console.log(backupNum)
         return
     }  
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 let decimalUsed = false;
@@ -122,18 +98,13 @@ function dot () {
 }
 
 
-
-
-
-
-
 // Setting up an event listener on Equals button
 calculate.addEventListener('click', calculator, false)
 
 function calculator () {
-    let result = 0;                            //Variable for storing result of calc
-    let num2 = currentNumber.join('');    //Our currentNumber is turned into a string
-    secondNumber = Number(num2)           //The string is converted to a number
+    let result = 0;                              //Variable for storing result of calc
+    let num2 = currentNumber.join('');           //Our currentNumber is turned into a string
+    secondNumber = Number(num2)                  //The string is converted to a number
 
     if (operatorLastPressed === '÷') {
         result = firstNumber / secondNumber
@@ -144,10 +115,18 @@ function calculator () {
     } else if (operatorLastPressed === '-') {
         result = firstNumber - secondNumber
     }
-
     document.getElementById('bottomDisplay').innerHTML = `${result}`
+    
+    currentNumber = [];
+    operatorNumber = [];
+   // operatorUsed = false;
+    operatorNumber.push(result);
+    
 
-    //  console.log(result)
+    // console.log(firstNumber)
+    // console.log(secondNumber)
+    // console.log(backupNum)
+    // console.log(result)
 };
 
 
@@ -156,12 +135,14 @@ clearAll.addEventListener('click', resetCalc, false)
 
 function resetCalc () {
     currentNumber = [];
+    operatorNumber = [];
     operatorLastPressed = ""; 
     decimalUsed = false;
+    operatorUsed = false;
     document.getElementById('topDisplay').innerHTML = ``;
     document.getElementById('bottomDisplay').innerHTML = ``; 
 
-   //  console.log('clearAll')
+     console.log('clearAll')
 }
 
 
@@ -170,6 +151,7 @@ clearEntry.addEventListener('click', clearLast, false)
 
 function clearLast () {
     currentNumber.pop();
+    operatorNumber.pop();
     display();
 
     // console.log(currentNumber)
