@@ -49,7 +49,7 @@ for (let i = 0; i < operator.length; i++) {
 function operation () {
     let num = operatorNumber.join('');    //Our currentNumber is turned into a string
     firstNumber = Number(num);           //The string is converted to a number
-    //  console.log(firstNumber)
+     console.log(firstNumber)
 
     let num2 = currentNumber.join(''); 
     backupNum = Number(num2);
@@ -78,8 +78,8 @@ function operation () {
 };
 
 
-let decimalUsed = false;
-
+let decimalUsed = false;                        //Setting to true/false enables us to toggle the value
+                                                //for the if statement in the dot function
 // Setting up an event listener on Decimal button
 decimal.addEventListener('click', dot, false)
 
@@ -115,12 +115,13 @@ function calculator () {
     } else if (operatorLastPressed === '-') {
         result = firstNumber - secondNumber
     }
-    document.getElementById('bottomDisplay').innerHTML = `${result}`
+    document.getElementById('bottomDisplay').innerHTML = `${Math.round((result + Number.EPSILON) * 100) / 100}`
     
     currentNumber = [];
     operatorNumber = [];
+    decimalUsed = false;
    // operatorUsed = false;
-    operatorNumber.push(result);
+    operatorNumber.push(Math.round((result + Number.EPSILON) * 100) / 100);
     
 
     // console.log(firstNumber)
