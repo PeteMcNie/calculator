@@ -64,9 +64,9 @@ function operation () {
         operatorUsed = true;
         decimalUsed = false;
 
-        console.log('false: operator not yet used')
-        console.log(firstNumber)
-        console.log(backupNum)
+        // console.log('false: operator not yet used')
+        // console.log(firstNumber)
+        // console.log(backupNum)
         return
     } else {
         document.getElementById('bottomDisplay').innerHTML = firstNumber;
@@ -142,7 +142,7 @@ function resetCalc () {
     document.getElementById('topDisplay').innerHTML = ``;
     document.getElementById('bottomDisplay').innerHTML = ``; 
 
-     console.log('clearAll')
+    // console.log('clearAll')
 }
 
 
