@@ -2,6 +2,7 @@
 let number = document.querySelectorAll('[data-number]');
 let operator = document.querySelectorAll('[data-operator]');
 let decimal = document.querySelector('[data-decimal]');
+let minusplus = document.querySelector('[data-minusplus]');
 let calculate = document.querySelector('[data-calculate]');
 let clearAll = document.querySelector('[data-clearAll]');
 let clearEntry = document.querySelector('[data-clearEntry]');
@@ -9,7 +10,7 @@ let clearEntry = document.querySelector('[data-clearEntry]');
 
 let currentNumber = [];             //Used to store the current Number we are working with
 let operatorLastPressed = "";       //Used to store the operator pressed
-let operatorNumber = [];
+let operatorNumber = [];            
 
 
 
@@ -33,12 +34,12 @@ function addNumber () {
 // THE NUMBER BEING DISPLAYED
 function display () {
     let display = currentNumber.join('');               // display is our array turned into a string
-    // console.log(display) 
     document.getElementById('bottomDisplay').innerHTML = display;  //the string is placed in our innerHTML 
+ // console.log(display) 
 };
 
 
-let operatorUsed = false;
+let operatorUsed = false;                                   //Used to toggle operator button pushes
 
 // Setting up an event listener on OPERATOR buttons
 for (let i = 0; i < operator.length; i++) {
@@ -49,27 +50,26 @@ for (let i = 0; i < operator.length; i++) {
 function operation () {
     let num = operatorNumber.join('');    //Our currentNumber is turned into a string
     firstNumber = Number(num);           //The string is converted to a number
-     console.log(firstNumber)
+    //  console.log(firstNumber)
 
     let num2 = currentNumber.join(''); 
     backupNum = Number(num2);
     //  console.log(backupNum)
 
     operatorLastPressed = this.innerHTML;   //The last operator pressed is stored as a string
-    document.getElementById('topDisplay').innerHTML = `${firstNumber} ${this.innerHTML}`;
-
-
+    document.getElementById('topDisplay').innerHTML = `${firstNumber} ${this.innerHTML}`; //the display is updated
+                                                                                        // each time an operator is pushed
     if (!operatorUsed) {
-        currentNumber = [];
-        operatorUsed = true;
-        decimalUsed = false;
+        currentNumber = [];             //Once operator is pushed, reset the current number so it can be used to find the second number when equals is pushed
+        operatorUsed = true;            //So we do not reset the decimal being used again
+        decimalUsed = false;            //Once an operator is hit the decimal may be pushed again
 
         // console.log('false: operator not yet used')
         // console.log(firstNumber)
         // console.log(backupNum)
         return
     } else {
-        document.getElementById('bottomDisplay').innerHTML = firstNumber;
+        document.getElementById('bottomDisplay').innerHTML = firstNumber;  //keep displaying the first number
         // console.log('true: operator button already pushed')
         // console.log(firstNumber)
         // console.log(backupNum)
@@ -84,18 +84,38 @@ let decimalUsed = false;                        //Setting to true/false enables 
 decimal.addEventListener('click', dot, false)
 
 function dot () {
-    if (!decimalUsed) {
-        console.log('false')
-        operatorNumber.push(decimal.innerHTML)
+    if (!decimalUsed) {                            //if the decimal is not used
+        // console.log('false')
+        operatorNumber.push(decimal.innerHTML)     //add the dot to the number
         currentNumber.push(decimal.innerHTML)
-        display();
-        decimalUsed = true;
+        display();                                  //call the display function to add the dot
+        decimalUsed = true;                         //toggle dot to used so if hit again the else statement applies
         return 
     } else {
-        console.log('true')
-        return
+        // console.log('true')
+        return                                      //do nothing if dot is hit a second time
     }
 }
+
+
+
+
+
+
+// Setting up an event listener on minusplus button
+minusplus.addEventListener('click', addSymbol, false)
+
+function addSymbol () {
+    console.log('hello')
+}
+
+
+
+
+
+
+
+
 
 
 // Setting up an event listener on Equals button
@@ -109,26 +129,32 @@ function calculator () {
     if (operatorLastPressed === '÷') {
         result = firstNumber / secondNumber
     } else if (operatorLastPressed === 'x') {
-        result = firstNumber * secondNumber
-    } else if (operatorLastPressed === '+') {
+        result = firstNumber * secondNumber         //tell us what calculation to make based
+    } else if (operatorLastPressed === '+') {       //on which button was pressed
         result = firstNumber + secondNumber
     } else if (operatorLastPressed === '-') {
         result = firstNumber - secondNumber
     }
     document.getElementById('bottomDisplay').innerHTML = `${Math.round((result + Number.EPSILON) * 100) / 100}`
-    
-    currentNumber = [];
+                                                        //update display, round number to prevent crazy decimals
+    currentNumber = [];                                 //reset current and operatorNumber
     operatorNumber = [];
-    decimalUsed = false;
-   // operatorUsed = false;
-    operatorNumber.push(Math.round((result + Number.EPSILON) * 100) / 100);
-    
-
+    decimalUsed = false;                                //reset decimal so it can be used again
+    operatorNumber.push(Math.round((result + Number.EPSILON) * 100) / 100); //thenew operator number is the result
+                                                                            // this enables further calcs if operator hit straight away after equals
     // console.log(firstNumber)
     // console.log(secondNumber)
     // console.log(backupNum)
     // console.log(result)
 };
+
+
+
+
+
+
+
+
 
 
 // Setting up an event listener on All Clear button
