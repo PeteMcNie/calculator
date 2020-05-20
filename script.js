@@ -98,22 +98,20 @@ function dot () {
 }
 
 
+let minusOrPlus = false;                        //Setting to true/false enables us to toggle the value
 
-
-
-let minusOrPlus = false;
 // Setting up an event listener on minusplus button
 minusplus.addEventListener('click', addSymbol, false)
 
 function addSymbol () {
     if (!minusOrPlus) {
-        console.log('false')
+        // console.log('false')
         operatorNumber.unshift("-")     
         currentNumber.unshift("-") 
         display();                                 
         minusOrPlus = true; 
     } else {
-        console.log('true')
+        // console.log('true')
         operatorNumber.shift("-")     
         currentNumber.shift("-") 
         display();                                 
@@ -121,13 +119,6 @@ function addSymbol () {
     }
     console.log('hello')
 }
-
-
-
-
-
-
-
 
 
 
@@ -163,14 +154,6 @@ function calculator () {
 };
 
 
-
-
-
-
-
-
-
-
 // Setting up an event listener on All Clear button
 clearAll.addEventListener('click', resetCalc, false)
 
@@ -182,7 +165,6 @@ function resetCalc () {
     operatorUsed = false;
     document.getElementById('topDisplay').innerHTML = ``;
     document.getElementById('bottomDisplay').innerHTML = ``; 
-
     // console.log('clearAll')
 }
 
@@ -194,7 +176,6 @@ function clearLast () {
     currentNumber.pop();
     operatorNumber.pop();
     display();
-
     // console.log(currentNumber)
     // console.log('clearLast')
 };

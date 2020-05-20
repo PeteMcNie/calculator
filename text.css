@@ -9,29 +9,38 @@ html {
     background-image: url("nzbw.png");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 1300px;
+    height: 800px;
+   
 }
 
 body {
     position: fixed;
-    top: 40%;
+    margin: 10px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
 
-.title {
+@media screen and (max-width: 700px) {
+    body {
+        left: 47.5%;
+    }
+  }
+
+/* .title {
     color: rgb(255, 255, 255);
     font-size: 2.5rem;
     text-align: center;
     padding-top: 10vh;
     padding-bottom: 5vh;
-}
+}  */
+
+
 
 .grid-container {
     display: grid;
-    width: 373px;
+    width: 367px;
     height: 640px;
-    margin: auto;
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: 175px repeat(5, 90px);
     margin: 3px;
