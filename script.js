@@ -63,7 +63,7 @@ function operation () {
         currentNumber = [];             //Once operator is pushed, reset the current number so it can be used to find the second number when equals is pushed
         operatorUsed = true;            //So we do not reset the decimal being used again
         decimalUsed = false;            //Once an operator is hit the decimal may be pushed again
-
+        minusOrPlus = false;
         // console.log('false: operator not yet used')
         // console.log(firstNumber)
         // console.log(backupNum)
@@ -101,11 +101,24 @@ function dot () {
 
 
 
-
+let minusOrPlus = false;
 // Setting up an event listener on minusplus button
 minusplus.addEventListener('click', addSymbol, false)
 
 function addSymbol () {
+    if (!minusOrPlus) {
+        console.log('false')
+        operatorNumber.unshift("-")     
+        currentNumber.unshift("-") 
+        display();                                 
+        minusOrPlus = true; 
+    } else {
+        console.log('true')
+        operatorNumber.shift("-")     
+        currentNumber.shift("-") 
+        display();                                 
+        minusOrPlus = false; 
+    }
     console.log('hello')
 }
 
@@ -140,6 +153,7 @@ function calculator () {
     currentNumber = [];                                 //reset current and operatorNumber
     operatorNumber = [];
     decimalUsed = false;                                //reset decimal so it can be used again
+    minusOrPlus = false;
     operatorNumber.push(Math.round((result + Number.EPSILON) * 100) / 100); //thenew operator number is the result
                                                                             // this enables further calcs if operator hit straight away after equals
     // console.log(firstNumber)
